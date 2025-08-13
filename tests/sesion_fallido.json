@@ -1,0 +1,65 @@
+{
+  "Usuario intenta iniciar sesión con credenciales incorrectas": {
+    "Dado que el usuario está en la url \"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\"": [
+      {
+        "paso_de_prueba": "Dado que el usuario está en la url \"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login\"",
+        "tipo": "actuar",
+        "accion": "ir_a_url",
+        "xpath": null,
+        "valor": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+      }
+    ],
+    "Cuando el usuario escribo \"admin_wrong\" un nombre de usuario inválido \"//input[@name='username']\"": [
+      {
+        "paso_de_prueba": "Cuando el usuario escribo \"admin_wrong\" un nombre de usuario inválido \"//input[@name='username']\"",
+        "tipo": "actuar",
+        "accion": "escribir_texto",
+        "xpath": "//input[@name='username']",
+        "valor": "admin_wrong"
+      }
+    ],
+    "Y el usuario escribe \"wrong_pass\" una contraseña incorrecta \"//input[@name='password']\"": [
+      {
+        "paso_de_prueba": "Y el usuario escribe \"wrong_pass\" una contraseña incorrecta \"//input[@name='password']\"",
+        "tipo": "actuar",
+        "accion": "escribir_texto",
+        "xpath": "//input[@name='password']",
+        "valor": "wrong_pass"
+      }
+    ],
+    "Y hace clic en el botón \"Login\"": [
+      {
+        "paso_de_prueba": "Y hace clic en el botón \"Login\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//button[@type='submit']",
+        "valor": null
+      }
+    ],
+    "Entonces se debe mostrar un mensaje de error \"Invalid credentials\"": [
+      {
+        "paso_de_prueba": "Entonces se debe mostrar un mensaje de error \"Invalid credentials\"",
+        "tipo": "validar",
+        "accion": "validar_texto",
+        "xpath": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text' and contains(.,'Invalid credentials')]",
+        "valor": "Invalid credentials"
+      }
+    ],
+    "Y el usuario debe permanecer en la página de login": [
+      {
+        "paso_de_prueba": "esperar a que la página cargue",
+        "tipo": "validar",
+        "accion": "espera",
+        "xpath": null,
+        "valor": 2
+      },
+      {
+        "paso_de_prueba": "Y el usuario debe permanecer en la página de login",
+        "tipo": "validar_texto",
+        "accion": "esta_visible",
+        "xpath": "//div[@class='orangehrm-login-branding']",
+        "valor": null
+      }
+    ]
+  }
+}
