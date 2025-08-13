@@ -1,0 +1,52 @@
+{
+  "Escenario: Inicio de sesión exitoso en Orange": {
+    "Dado que el usuario está en la página de login": [
+      {
+        "paso_de_prueba": "Abrir la URL de login",
+        "tipo": "actuar",
+        "accion": "ir_a_url",
+        "xpath": null,
+        "valor": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+      }
+    ],
+    "Cuando el usuario ingresa sus credenciales correctas": [
+      {
+        "paso_de_prueba": "Llenar el campo 'Usuario' con 'usuario_test'",
+        "tipo": "actuar",
+        "accion": "escribir_texto",
+        "xpath": "//input[@name='username']",
+        "valor": "Admin"
+      },
+      {
+        "paso_de_prueba": "Llenar el campo 'Contraseña' con 'admin123'",
+        "tipo": "actuar",
+        "accion": "escribir_texto",
+        "xpath": "//input[@name='password']",
+        "valor": "admin123"
+      },
+      {
+        "paso_de_prueba": "Hacer clic en el botón 'Iniciar sesión'",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//button[@type='submit']",
+        "valor": null
+      }
+    ],
+    "Entonces el usuario debería ver la pantalla principal de su cuenta": [
+      {
+        "paso_de_prueba": "esperar a que la página cargue",
+        "tipo": "validar",
+        "accion": "espera",
+        "xpath": null,
+        "valor": 5
+      },
+      {
+        "paso_de_prueba": "Verificar que el panel de usuario está visible",
+        "tipo": "validar",
+        "accion": "esta_visible",
+        "xpath": "//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module' and contains(.,'Dashboard')]",
+        "valor": null
+      }
+    ]
+  }
+}

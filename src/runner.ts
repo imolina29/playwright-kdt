@@ -1,56 +1,51 @@
-import { chromium } from 'playwright';
-import { leerCasoDePrueba } from './parser';
-import * as keywords from './keywords';
-import { CasoDePrueba, Paso } from './types';
-import type { AccionKeyword } from './keywords';
+import { chromium, Page } from 'playwright';
+import { ejecutarKeyword } from './keywords';
+import { Paso, CasoDePruebaBDD } from './types';
 
-async function ejecutarPaso(page: any, paso: Paso) {
-  const { accion, selector, xpath, valor } = paso;
-  const locator = xpath ?? selector;
 
-  if (!(accion in keywords)) {
-    throw new Error(`Acción desconocida: ${accion}`);
-  }
-
-  switch (accion) {
-    case 'ir_a_url':
-      if (!valor) throw new Error('Falta el valor (URL) para ir_a_url');
-      await keywords.ir_a_url(page, valor);
-      break;
-    case 'escribir_texto':
-      if (!locator || !valor) throw new Error('Faltan selector o valor para escribir_texto');
-      await keywords.escribir_texto(page, locator, valor);
-      break;
-    case 'click':
-      if (!locator) throw new Error('Falta el selector para click');
-      await keywords.click(page, locator);
-      break;
-    case 'validar_texto':
-      if (!locator || !valor) throw new Error('Faltan selector o valor para validar_texto');
-      await keywords.validar_texto(page, locator, valor);
-      break;
-    default:
-      throw new Error(`Acción no soportada: ${accion}`);
+async function ejecutarPaso(page: Page, paso: Paso) {
+  try {
+    await ejecutarKeyword(page, paso);
+    console.log(`✅ Paso ejecutado: ${paso.paso_de_prueba}`);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error(`❌ Error en paso: ${paso.paso_de_prueba}\n`, err.message);
+    throw err; 
   }
 }
 
-export async function ejecutarCasoDePrueba(rutaArchivo: string) {
-  const caso: CasoDePrueba = await leerCasoDePrueba(rutaArchivo);
-
+export async function ejecutarCasoDePrueba(
+  casoJson: CasoDePruebaBDD,
+  continuarEnError = false
+) {
   const browser = await chromium.launch({ headless: false });
   const page = await browser.newPage();
 
-  console.log(`Ejecutando caso: ${caso.titulo}`);
+  const escenarioTitulo = Object.keys(casoJson)[0];
+  const escenario = casoJson[escenarioTitulo];
 
-  for (const paso of caso.pasos) {
-    console.log(`Ejecutando paso: ${JSON.stringify(paso)}`);
-    try {
-      await ejecutarPaso(page, paso);
-    } catch (error) {
-      console.error(`Error en paso: ${JSON.stringify(paso)}`, error);
-      break;
+  console.log(`🚀 Ejecutando escenario: "${escenarioTitulo}"`);
+
+  for (const bloque of Object.keys(escenario)) {
+    console.log(`🔹 Bloque: ${bloque}`);
+    const pasos: Paso[] = escenario[bloque];
+
+    for (const paso of pasos) {
+      try {
+        await ejecutarPaso(page, {
+          ...paso,
+          valor: paso.valor ?? undefined,
+        });
+      } catch (error) {
+        if (!continuarEnError) {
+          console.log('⛔ Finalizando ejecución por error.');
+          await browser.close();
+          return;
+        }
+      }
     }
   }
 
   await browser.close();
+  console.log(`✅ Escenario "${escenarioTitulo}" finalizado`);
 }
