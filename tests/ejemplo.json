@@ -1,0 +1,10 @@
+{
+  "titulo": "Buscar en Google con XPath",
+  "pasos": [
+    { "accion": "ir_a_url", "valor": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" },
+    { "accion": "escribir_texto", "xpath": "//input[@name='username']", "valor": "Admin" },
+    { "accion": "escribir_texto", "xpath": "//input[@name='password']", "valor": "admin123" },
+    { "accion": "click", "xpath": "//button[@type='submit']" },
+    { "accion": "validar_texto", "xpath": "//h6", "valor": "Dashboard" }
+  ]
+}

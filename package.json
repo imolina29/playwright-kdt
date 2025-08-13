@@ -1,0 +1,14 @@
+{
+  "name": "automatizacion-kdt",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx cucumber-js --require-module ts-node/register --require tests/steps/**/*.ts tests/features/**/*.feature",
+    "test:playwright": "npx playwright test"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.0",
+    "@playwright/test": "^1.35.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
