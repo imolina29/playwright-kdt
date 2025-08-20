@@ -1,0 +1,49 @@
+{
+  "primeros clicks en AG": {
+    "Dado que el usuario está en la \"https://dsh9u4zf8izc1.cloudfront.net/vivienda-digital\" de autogestion": [
+      {
+        "paso_de_prueba": "Dado que el usuario está en la \"https://dsh9u4zf8izc1.cloudfront.net/vivienda-digital\" de autogestion",
+        "tipo": "actuar",
+        "accion": "ir_a_url",
+        "xpath": null,
+        "valor": "https://dsh9u4zf8izc1.cloudfront.net/vivienda-digital"
+      }
+    ],
+    "Cuando el usuario haga click en \"//*[@id='btn-start']\"": [
+      {
+        "paso_de_prueba": "Cuando el usuario haga click en \"//*[@id='btn-start']\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//*[@id='btn-start']",
+        "valor": null
+      }
+    ],
+    "Y el usuario haga click en \"//mf-viability-accordion-panel[contains(., 'Compra de inmueble')]\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"//mf-viability-accordion-panel[contains(., 'Compra de inmueble')]\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//mf-viability-accordion-panel[contains(., 'Compra de inmueble')]",
+        "valor": null
+      }
+    ],
+    "Y el usuario haga click en \"//label[contains(@class,'mf-viability-destiny-option') and contains(., 'Inmueble usado para vivir')]\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"//label[contains(@class,'mf-viability-destiny-option') and contains(., 'Inmueble usado para vivir')]\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//label[contains(@class,'mf-viability-destiny-option') and contains(., 'Inmueble usado para vivir')]",
+        "valor": null
+      }
+    ],
+    "Entonces el usuario ve habilitado el boton \"//*[@id='btn-continue']\"": [
+      {
+        "paso_de_prueba": "Entonces el usuario ve habilitado el boton \"//*[@id='btn-continue']\"",
+        "tipo": "validar",
+        "accion": "esta_habilitado",
+        "xpath": "//*[@id='btn-continue']",
+        "valor": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "Usuario busca un producto y lo añade al carrito": {
+    "Dado que el usuario está en la url \"https://demo.fake-shop.com\"": [
+      {
+        "paso_de_prueba": "Dado que el usuario está en la url \"https://demo.fake-shop.com\"",
+        "tipo": "actuar",
+        "accion": "ir_a_url",
+        "xpath": null,
+        "valor": "https://demo.fake-shop.com"
+      }
+    ],
+    "Cuando el usuario escribe \"zapatillas running\" en \"//input[@name='search']\"": [
+      {
+        "paso_de_prueba": "Cuando el usuario escribe \"zapatillas running\" en \"//input[@name='search']\"",
+        "tipo": "actuar",
+        "accion": "escribir_texto",
+        "xpath": "//input[@name='search']",
+        "valor": "zapatillas running"
+      }
+    ],
+    "Y el usuario haga click en \"//button[@id='btn-search']\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"//button[@id='btn-search']\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//button[@id='btn-search']",
+        "valor": null
+      }
+    ],
+    "Entonces el usuario debe ver el texto \"Resultados\" en \"//h1[contains(.,'Resultados')]\"": [
+      {
+        "paso_de_prueba": "Entonces el usuario debe ver el texto \"Resultados\" en \"//h1[contains(.,'Resultados')]\"",
+        "tipo": "validar",
+        "accion": "validar_texto",
+        "xpath": "//h1[contains(.,'Resultados')]",
+        "valor": "Resultados"
+      }
+    ],
+    "Y el usuario haga click en \"//a[contains(.,'Zapatillas Running Pro')]\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"//a[contains(.,'Zapatillas Running Pro')]\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//a[contains(.,'Zapatillas Running Pro')]",
+        "valor": null
+      }
+    ],
+    "Y el usuario haga click en \"//button[@id='add-to-cart']\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"//button[@id='add-to-cart']\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "//button[@id='add-to-cart']",
+        "valor": null
+      }
+    ],
+    "Entonces el usuario debe ver el texto \"Producto agregado al carrito\" en \"//div[@class='toast']\"": [
+      {
+        "paso_de_prueba": "Entonces el usuario debe ver el texto \"Producto agregado al carrito\" en \"//div[@class='toast']\"",
+        "tipo": "validar",
+        "accion": "validar_texto",
+        "xpath": "//div[@class='toast']",
+        "valor": "Producto agregado al carrito"
+      }
+    ]
+  }
+}

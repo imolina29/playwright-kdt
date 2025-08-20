@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "scripts": {
     "test": "npx cucumber-js --require-module ts-node/register --require tests/steps/**/*.ts tests/features/**/*.feature",
-    "test:playwright": "npx playwright test",
+    "test:playwright": "npx playwright test --ui",
     "test:tag": "ts-node src/basicTest.ts"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^9.0.0",
-    "@playwright/test": "^1.35.0",
+    "@playwright/test": "^1.54.2",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.3",
+    "prettier": "3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }

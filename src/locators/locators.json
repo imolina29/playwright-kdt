@@ -1,0 +1,7 @@
+{
+    "home.url": "https://dsh9u4zf8izc1.cloudfront.net/vivienda-digital",
+    "home.btn_comenzar": "//*[@id='btn-start']",
+    "home.compra_inmueble": "//mf-viability-accordion-panel[contains(., 'Compra de inmueble')]",
+    "home.inmueble_usado": "//label[contains(@class,'mf-viability-destiny-option') and contains(., 'Inmueble usado para vivir')]",
+    "home.btn_continuar": "//*[@id='btn-continue']"
+}

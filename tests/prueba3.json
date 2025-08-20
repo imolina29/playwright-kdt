@@ -1,0 +1,49 @@
+{
+  "Primeros clics en flujo AG": {
+    "Dado que el usuario está en la url \"home.url\"": [
+      {
+        "paso_de_prueba": "Dado que el usuario está en la url \"home.url\"",
+        "tipo": "actuar",
+        "accion": "ir_a_url",
+        "xpath": null,
+        "valor": "home.url"
+      }
+    ],
+    "Cuando el usuario haga click en \"home.btn_comenzar\"": [
+      {
+        "paso_de_prueba": "Cuando el usuario haga click en \"home.btn_comenzar\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "home.btn_comenzar",
+        "valor": null
+      }
+    ],
+    "Y el usuario haga click en \"home.compra_inmueble\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"home.compra_inmueble\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "home.compra_inmueble",
+        "valor": null
+      }
+    ],
+    "Y el usuario haga click en \"home.inmueble_usado\"": [
+      {
+        "paso_de_prueba": "Y el usuario haga click en \"home.inmueble_usado\"",
+        "tipo": "actuar",
+        "accion": "clickear",
+        "xpath": "home.inmueble_usado",
+        "valor": null
+      }
+    ],
+    "Entonces el usuario ve habilitado el boton \"home.btn_continuar\"": [
+      {
+        "paso_de_prueba": "Entonces el usuario ve habilitado el boton \"//*[@id='btn-continue']\"",
+        "tipo": "validar",
+        "accion": "esta_habilitado",
+        "xpath": "//*[@id='btn-continue']",
+        "valor": null
+      }
+    ]
+  }
+}
